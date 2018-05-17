@@ -8,7 +8,8 @@ var timerDisplay = document.getElementById('display');
 
 // js variables for timer
 var timerCount = 0; // seconds
-var timer = null; // switches on and off
+var timer = null;   // switches on and off
+var cycle = false;  // cycle to prevent clicking start twice
 
 // update timer display method
 var updateTimerDisplay = function(){
@@ -26,15 +27,32 @@ restartButton.addEventListener('click', function(){
   console.log('restart state');
   timerCount = 0;
   timer = null;
+  cycle = false;
   updateTimerDisplay();
-})
+});
 
 // start method
 startButton.addEventListener('click', function(){
-  console.log('start clicked');
-})
+  if (cycle === true){
+    console.log('there is a current timer running');
+  } else {
+    cycle = true;
+    console.log('start clicked');
+    console.log('for every second, increment timer & update display')
+    timer = setInterval( function(){
+      incrementTimer();
+      updateTimerDisplay();
+    }, 1000);
+  }
+});
 
 // pause method
 pauseButton.addEventListener('click', function(){
   console.log('pause clicked');
-})
+  console.log('pause timer incrementation by using clearInterval')
+  if (cycle === true){
+    clearInterval(timer);
+  } else {
+    console.log('there is no cycle running');
+  }
+});
