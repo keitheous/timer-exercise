@@ -25,6 +25,7 @@ var incrementTimer = function(){
 restartButton.addEventListener('click', function(){
   console.log('restart clicked');
   console.log('restart state');
+  clearInterval(timer);
   timerCount = 0;
   timer = null;
   cycle = false;
@@ -33,9 +34,7 @@ restartButton.addEventListener('click', function(){
 
 // start method
 startButton.addEventListener('click', function(){
-  if (cycle === true){
-    console.log('there is a current timer running');
-  } else {
+  if (cycle === false){
     cycle = true;
     console.log('start clicked');
     console.log('for every second, increment timer & update display')
@@ -43,16 +42,15 @@ startButton.addEventListener('click', function(){
       incrementTimer();
       updateTimerDisplay();
     }, 1000);
+    console.log(timer);
   }
 });
 
 // pause method
 pauseButton.addEventListener('click', function(){
-  console.log('pause clicked');
-  console.log('pause timer incrementation by using clearInterval')
   if (cycle === true){
+    cycle = false
     clearInterval(timer);
-  } else {
-    console.log('there is no cycle running');
-  }
+    console.log(timer);
+  };
 });
