@@ -9,15 +9,34 @@
 </head>
 <body>
   <div class="container">
-    <div class="display">
-      <h1 id='display'>00:00:00</h1>
-    </div>
-    <div class="panels">
-    <button class='buttons' id='restart'><h3>Restart</h3></button>
-    <button class='buttons' id='start'><h3>Start</h3></button>
-    <button class='buttons' id='pause'><h3>Pause</h3></button>
+    <!-- <div class="section">
+      <div class="display">
+        <h2>Stopwatch</h2>
+        <h1 id='stop-watch-display'>00:00:00</h1>
+      </div>
+      <div class="panels">
+      <button class='buttons' id='stop-watch-restart'><h3>Restart</h3></button>
+      <button class='buttons' id='stop-watch-start'><h3>Start</h3></button>
+      <button class='buttons' id='stop-watch-pause'><h3>Pause</h3></button>
+      </div>
+    </div> -->
+
+    <div class="section">
+      <div class="display">
+        <h2>Timer</h2>
+        <h1 id='timer-display'></h1>
+        <!-- <input type="text" class='user-input'></input>
+        <input type="text" class='user-input'></input> -->
+        <input type="text" class='user-input' id='timer-seconds'></input>
+      </div>
+      <div class="panels">
+      <button class='buttons' id='timer-restart'><h3>Restart</h3></button>
+      <button class='buttons' id='timer-start'><h3>Start</h3></button>
+      <button class='buttons' id='timer-pause'><h3>Pause</h3></button>
+      </div>
     </div>
   </div>
-  <script src='timer.js'></script>
+  <script src='stop-watch.js'></script>
+  <script src='timer-watch.js'></script>
 </body>
 </html>
